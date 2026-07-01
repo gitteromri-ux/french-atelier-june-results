@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>French Atelier — June 2026 Results</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-deep:#0B1120;--bg-main:#0F172A;--bg-surface:#1E293B;
+  --card:rgba(30,41,59,.55);--card-hi:rgba(30,41,59,.85);
+  --border:rgba(148,163,184,.12);--border-hi:rgba(148,163,184,.22);
+  --text:#F1F5F9;--text2:#94A3B8;--muted:#64748B;
+  --indigo:#6366F1;--cyan:#06B6D4;--amber:#F59E0B;--emerald:#10B981;--red:#EF4444;--violet:#A78BFA;
+  --r-sm:8px;--r-md:12px;--r-lg:18px;
+  --sh:0 1px 3px rgba(0,0,0,.3),0 10px 34px rgba(0,0,0,.28);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--text);min-height:100vh;
+  background:
+   radial-gradient(1100px 620px at 88% -8%,rgba(99,102,241,.15),transparent 60%),
+   radial-gradient(900px 560px at 2% 4%,rgba(6,182,212,.10),transparent 55%),
+   var(--bg-deep);}
+.wrap{max-width:1160px;margin:0 auto;padding:40px 28px 100px}
+
+/* header */
+.top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:26px;border-bottom:1px solid var(--border)}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(150deg,var(--indigo),var(--cyan));box-shadow:0 8px 26px rgba(99,102,241,.4);font-weight:800;font-size:19px;color:#fff;letter-spacing:-.5px}
+.brand .t1{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.brand .t2{font-size:13px;color:var(--text2);font-weight:500;margin-top:2px}
+.period{text-align:right}
+.period .p1{font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--cyan)}
+.period .p2{font-size:15px;color:var(--text2);font-weight:500;margin-top:3px}
+
+/* KPI row */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+@media(max-width:860px){.kpis{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:460px){.kpis{grid-template-columns:1fr}}
+.kpi{position:relative;border-radius:var(--r-lg);padding:22px 22px 20px;background:var(--card);border:1px solid var(--border);box-shadow:var(--sh);backdrop-filter:blur(14px);overflow:hidden;transition:.25s var(--ease)}
+.kpi:hover{transform:translateY(-3px);border-color:var(--border-hi);background:var(--card-hi)}
+.kpi .ic{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;margin-bottom:16px}
+.kpi .lab{font-size:11.5px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--text2)}
+.kpi .val{font-size:38px;font-weight:800;letter-spacing:-1.5px;margin-top:8px;line-height:1;font-variant-numeric:tabular-nums}
+.kpi .sub{font-size:12.5px;color:var(--muted);margin-top:9px;font-weight:500}
+.kpi .rail{position:absolute;left:0;top:0;bottom:0;width:3px}
+.k-indigo .rail{background:var(--indigo)} .k-indigo .ic{background:rgba(99,102,241,.16);color:var(--indigo)} .k-indigo .val{color:#C7CBFF}
+.k-cyan .rail{background:var(--cyan)} .k-cyan .ic{background:rgba(6,182,212,.16);color:var(--cyan)} .k-cyan .val{color:#9EE9F5}
+.k-amber .rail{background:var(--amber)} .k-amber .ic{background:rgba(245,158,11,.16);color:var(--amber)} .k-amber .val{color:#FCD68A}
+.k-emerald .rail{background:var(--emerald)} .k-emerald .ic{background:rgba(16,185,129,.16);color:var(--emerald)} .k-emerald .val{color:#8EE9C6}
+
+/* section cards */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+@media(max-width:880px){.grid{grid-template-columns:1fr}}
+.panel{border-radius:var(--r-lg);padding:24px 24px 20px;background:var(--card);border:1px solid var(--border);box-shadow:var(--sh);backdrop-filter:blur(14px)}
+.panel.full{margin-top:18px}
+.ph{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:4px}
+.ph .h{font-size:15px;font-weight:700;letter-spacing:-.2px}
+.ph .tag{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.4px}
+.psub{font-size:12.5px;color:var(--muted);margin-bottom:16px;font-weight:500}
+.svgwrap svg{width:100%;height:auto;display:block;overflow:visible}
+.repname{fill:var(--text2);font-weight:600}
+.barval{fill:var(--text);font-weight:700}
+.axis{fill:var(--muted);font-weight:600}
+.gl{stroke:var(--border);stroke-width:1}
+
+/* table */
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums}
+.tbl th{text-align:right;padding:11px 12px;font-size:10.5px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border)}
+.tbl th:first-child,.tbl td:first-child{text-align:left}
+.tbl td{text-align:right;padding:11px 12px;border-bottom:1px solid var(--border);color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr.tot td{border-top:2px solid var(--border-hi);font-weight:800;color:var(--text);padding-top:14px}
+.tbl .m{color:var(--text);font-weight:700}
+
+.foot{margin-top:30px;font-size:12px;color:var(--muted);text-align:center;line-height:1.6}
+</style></head>
+<body><div class="wrap">
+
+<div class="top">
+  <div class="brand">
+    <div class="logo">FA</div>
+    <div><div class="t1">French Atelier</div><div class="t2">Call-center performance</div></div>
+  </div>
+  <div class="period"><div class="p1">Monthly Results</div><div class="p2">June 2026</div></div>
+</div>
+
+<div class="kpis">
+  <div class="kpi k-cyan"><div class="rail"></div>
+    <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg></div>
+    <div class="lab">Acquisitions</div><div class="val">91</div><div class="sub">Closed in June</div></div>
+  <div class="kpi k-indigo"><div class="rail"></div>
+    <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+    <div class="lab">Registrations</div><div class="val">126</div><div class="sub">New this month</div></div>
+  <div class="kpi k-amber"><div class="rail"></div>
+    <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+    <div class="lab">Revenue</div><div class="val">€120.5K</div><div class="sub">€120,528 contract value</div></div>
+  <div class="kpi k-emerald"><div class="rail"></div>
+    <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+    <div class="lab">Reg / Contacted</div><div class="val">11.8%</div><div class="sub">126 regs · ~1,068 contacted</div></div>
+</div>
+
+<div class="panel full">
+  <div class="ph"><div class="h">Acquisitions &amp; Registrations by representative</div><div class="tag">June 2026</div></div>
+  <div class="psub">Ranked by registrations</div>
+  <div class="svgwrap"><svg id="chAcqReg" viewBox="0 0 900 430" role="img"></svg></div>
+</div>
+
+<div class="grid">
+  <div class="panel">
+    <div class="ph"><div class="h">Revenue by representative</div><div class="tag">€</div></div>
+    <div class="psub">Contract value · June 2026</div>
+    <div class="svgwrap"><svg id="chRev" viewBox="0 0 440 430" role="img"></svg></div>
+  </div>
+  <div class="panel">
+    <div class="ph"><div class="h">Reg / Contacted by representative</div><div class="tag">%</div></div>
+    <div class="psub">Registrations ÷ contacted · dashed line = team 11.8%</div>
+    <div class="svgwrap"><svg id="chRatio" viewBox="0 0 440 430" role="img"></svg></div>
+  </div>
+</div>
+
+<div class="panel full">
+  <div class="ph"><div class="h">Registrations → Acquisitions</div><div class="tag">Team totals</div></div>
+  <div class="psub">June 2026</div>
+  <div class="svgwrap"><svg id="chFunnel" viewBox="0 0 900 210" role="img"></svg></div>
+</div>
+
+<div class="panel full">
+  <div class="ph"><div class="h">By representative</div><div class="tag">June 2026</div></div>
+  <div class="psub">Acquisitions, registrations, revenue and registrations-to-contacted</div>
+  <table class="tbl" id="repTable">
+    <thead><tr><th>Representative</th><th>Acquisitions</th><th>Registrations</th><th>Revenue (€)</th><th>Reg / Contacted</th></tr></thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<div class="foot">French Atelier · June 2026 · call-center performance results.<br>
+Reg / Contacted = registrations ÷ contacted; contacted derived from registrations ÷ (registrations / contacted).</div>
+
+</div>
+<script>
+var D=[
+ {name:"Levite Eric",acqs:17,regs:25,rev:22632,ratio:16.8},
+ {name:"Azizi Malek",acqs:15,regs:24,rev:23113,ratio:16.8},
+ {name:"Levy Marc",acqs:16,regs:18,rev:17216,ratio:11.0},
+ {name:"Mokla Sara",acqs:14,regs:18,rev:17529,ratio:19.4},
+ {name:"Mourabit Maryam",acqs:9,regs:17,rev:16179,ratio:10.0},
+ {name:"Petit Anais",acqs:8,regs:8,rev:8546,ratio:8.2},
+ {name:"Delacroix Jean",acqs:6,regs:6,rev:6496,ratio:6.1},
+ {name:"Durand Adam",acqs:4,regs:4,rev:3876,ratio:3.3},
+ {name:"Rot Sheila (R)",acqs:0,regs:3,rev:2400,ratio:null},
+ {name:"Benalou Marcus",acqs:2,regs:3,rev:2541,ratio:6.7}
+];
+var CYAN='#06B6D4',INDIGO='#6366F1',AMBER='#F59E0B',VIOLET='#A78BFA',MUTED='#64748B',BORDER='rgba(148,163,184,.14)',TEXT='#F1F5F9',TEXT2='#94A3B8';
+var NS='http://www.w3.org/2000/svg';
+function E(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+function TX(x,y,s,anchor,size,weight,fill,cls){var t=E('text',{x:x,y:y,'text-anchor':anchor||'start','font-size':size||12,'font-weight':weight||600,fill:fill||TEXT});if(cls)t.setAttribute('class',cls);t.textContent=s;return t;}
+
+/* grouped acqs+regs */
+(function(){
+  var svg=document.getElementById('chAcqReg'),W=900,H=430,L=150,R=44,T=34,B=36;
+  var d=D.slice().sort(function(a,b){return b.regs-a.regs;});
+  var mx=Math.max.apply(null,d.map(function(x){return x.regs;}));
+  var pw=W-L-R,ph=H-T-B,rh=ph/d.length,bh=rh*0.30;
+  for(var g=0;g<=mx;g+=5){var gx=L+pw*(g/mx);svg.appendChild(E('line',{x1:gx,y1:T,x2:gx,y2:T+ph,class:'gl'}));svg.appendChild(TX(gx,T+ph+22,String(g),'middle',11,600,MUTED,'axis'));}
+  d.forEach(function(x,i){
+    var cy=T+i*rh+rh/2;
+    svg.appendChild(TX(L-14,cy+4,x.name,'end',12,600,TEXT2,'repname'));
+    var wR=pw*(x.regs/mx),wA=pw*(x.acqs/mx);
+    var rR=E('rect',{x:L,y:cy-bh-2,width:0,height:bh,rx:4,fill:INDIGO});svg.appendChild(rR);
+    var rA=E('rect',{x:L,y:cy+2,width:0,height:bh,rx:4,fill:CYAN});svg.appendChild(rA);
+    svg.appendChild(TX(L+wR+8,cy-bh/2+2,String(x.regs),'start',12,700,'#C7CBFF','barval'));
+    svg.appendChild(TX(L+wA+8,cy+bh/2+6,String(x.acqs),'start',12,700,'#9EE9F5','barval'));
+    setTimeout(function(){rR.style.transition='width .8s var(--ease)';rR.setAttribute('width',wR);rA.style.transition='width .8s var(--ease) .08s';rA.setAttribute('width',wA);},30);
+  });
+  svg.appendChild(E('rect',{x:L,y:8,width:12,height:12,rx:3,fill:INDIGO}));svg.appendChild(TX(L+18,18,'Registrations','start',12,700,TEXT2));
+  svg.appendChild(E('rect',{x:L+128,y:8,width:12,height:12,rx:3,fill:CYAN}));svg.appendChild(TX(L+146,18,'Acquisitions','start',12,700,TEXT2));
+})();
+
+/* revenue */
+(function(){
+  var svg=document.getElementById('chRev'),W=440,H=430,L=132,R=52,T=10,B=14;
+  var d=D.slice().sort(function(a,b){return b.rev-a.rev;});
+  var mx=Math.max.apply(null,d.map(function(x){return x.rev;}));
+  var pw=W-L-R,ph=H-T-B,rh=ph/d.length,bh=rh*0.52;
+  d.forEach(function(x,i){
+    var cy=T+i*rh+rh/2;
+    svg.appendChild(TX(L-12,cy+4,x.name,'end',11.5,600,TEXT2,'repname'));
+    var w=pw*(x.rev/mx);
+    var r=E('rect',{x:L,y:cy-bh/2,width:0,height:bh,rx:4,fill:AMBER,opacity:.92});svg.appendChild(r);
+    svg.appendChild(TX(L+w+7,cy+4,'\u20ac'+Math.round(x.rev/1000)+'K','start',11.5,700,'#FCD68A','barval'));
+    setTimeout(function(){r.style.transition='width .8s var(--ease)';r.setAttribute('width',w);},30);
+  });
+})();
+
+/* reg/contacted */
+(function(){
+  var svg=document.getElementById('chRatio'),W=440,H=430,L=132,R=46,T=10,B=24;
+  var d=D.filter(function(x){return x.ratio!=null;}).sort(function(a,b){return b.ratio-a.ratio;});
+  var mx=Math.max.apply(null,d.map(function(x){return x.ratio;}));
+  var pw=W-L-R,ph=H-T-B,rh=ph/d.length,bh=rh*0.52;
+  var tx=L+pw*(11.8/mx);
+  svg.appendChild(E('line',{x1:tx,y1:T-2,x2:tx,y2:T+ph,stroke:MUTED,'stroke-width':1,'stroke-dasharray':'4 4'}));
+  svg.appendChild(TX(tx,T+ph+18,'team 11.8%','middle',10.5,600,MUTED,'axis'));
+  d.forEach(function(x,i){
+    var cy=T+i*rh+rh/2;
+    svg.appendChild(TX(L-12,cy+4,x.name,'end',11.5,600,TEXT2,'repname'));
+    var w=pw*(x.ratio/mx);
+    var r=E('rect',{x:L,y:cy-bh/2,width:0,height:bh,rx:4,fill:VIOLET,opacity:.92});svg.appendChild(r);
+    svg.appendChild(TX(L+w+7,cy+4,x.ratio.toFixed(1)+'%','start',11.5,700,'#CBB9FF','barval'));
+    setTimeout(function(){r.style.transition='width .8s var(--ease)';r.setAttribute('width',w);},30);
+  });
+})();
+
+/* funnel */
+(function(){
+  var svg=document.getElementById('chFunnel'),W=900,H=210;
+  var st=[{lab:'Registrations',v:126,c:INDIGO},{lab:'Acquisitions',v:91,c:CYAN}];
+  var mx=126,cx=W/2,T=22,gap=26,bh=(H-T-36-gap)/2;
+  st.forEach(function(s,i){
+    var w=(W-140)*(s.v/mx),x=cx-w/2,y=T+i*(bh+gap);
+    var r=E('rect',{x:cx,y:y,width:0,height:bh,rx:9,fill:s.c,opacity:.92});svg.appendChild(r);
+    svg.appendChild(TX(cx,y+bh/2-3,s.lab,'middle',14,700,'#0B1120'));
+    svg.appendChild(TX(cx,y+bh/2+19,String(s.v),'middle',19,800,'#0B1120'));
+    setTimeout(function(){r.style.transition='all .8s var(--ease) '+(i*0.1)+'s';r.setAttribute('x',x);r.setAttribute('width',w);},30);
+  });
+  svg.appendChild(TX(cx,H-10,'126 registrations to 91 acquisitions \u00b7 \u20ac120,528 revenue','middle',13,600,TEXT2));
+})();
+
+/* table */
+(function(){
+  var tb=document.querySelector('#repTable tbody');
+  var d=D.slice().sort(function(a,b){return b.acqs-a.acqs || b.regs-a.regs;});
+  d.forEach(function(x){
+    var tr=document.createElement('tr');
+    tr.innerHTML='<td>'+x.name+'</td><td>'+x.acqs+'</td><td>'+x.regs+'</td><td>'+x.rev.toLocaleString()+'</td><td>'+(x.ratio==null?'\u2014':x.ratio.toFixed(1)+'%')+'</td>';
+    tb.appendChild(tr);
+  });
+  var tr=document.createElement('tr');tr.className='tot';
+  tr.innerHTML='<td>Team total</td><td>91</td><td>126</td><td>120,528</td><td>11.8%</td>';
+  tb.appendChild(tr);
+})();
+</script>
+</body></html>
